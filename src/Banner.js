@@ -3,6 +3,7 @@ import React,{useState} from 'react'
 import "./Banner.css";
 import Search from "./Search";
 import { useHistory } from "react-router-dom";
+import { Grid } from "@material-ui/core"
 
 function Banner() {
 
@@ -10,8 +11,11 @@ function Banner() {
     const [showSearch, setShowSearch] = useState(false);
 
     return (
-        <div className="banner">
-            <div className="banner_search">
+
+    <Grid container spacing={1}>
+        <Grid item xs={12} >
+            <div className="banner">
+                <div className="banner_search">
                 {showSearch && <Search />}
                 <Button onClick={()=> setShowSearch(!showSearch)} className="banner_searchButton" variant="outlined">
                     {showSearch? "Hide" : "Search Dates"}
@@ -22,7 +26,11 @@ function Banner() {
                 <h5>Plan a different kind of getaway to uncover the hidden gems near you</h5>
                 <Button onClick={()=> history.push("/search")} variant="outline" >Explore Nearby</Button>
             </div>
-        </div>
+            </div>
+        </Grid>
+    </Grid>
+
+        
     )
 }
 
